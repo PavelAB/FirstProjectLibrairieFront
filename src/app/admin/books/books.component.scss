@@ -1,0 +1,53 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.selected {
+  background-color: rgb(100, 100, 100);
+}
+button, input[type="submit"] {
+  background-color: #8e959c;
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+// style pour le bouton survolé
+button:hover, input[type="submit"]:hover {
+  background-color: #748597;
+}
+
+// style pour le bouton pressé
+button:active, input[type="submit"]:active {
+  background-color: #96a1ad;
+}
+
+// style pour le bouton désactivé
+button:disabled, input[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

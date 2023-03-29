@@ -1,0 +1,28 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>ID de la commande</th>
+            <th>Date de commande</th>
+            <th>Status</th>
+            <th>Books</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of listOrder">
+            <th>{{order.ID_Order}}</th>
+            <th>{{order.orderDate | date}}</th>
+            <th *ngIf="order.isPaid===true" >Payé</th>
+            <th *ngIf="order.isPaid===false" >NOT</th>
+            <th *ngIf="isRole==='Admin'">
+                <button routerLink="/admin/orders/details/{{order.ID_Order}}">Details</button>
+            </th>
+            
+            <th *ngFor="let test of order.book">{{test.title}}</th>
+            <!-- <th>
+                <button *ngIf="isRole==='Admin'" routerLink="/admin/order/update/{{order.ID_Order}}">Modifier</button>
+            </th> -->
+            
+        </tr>
+    </tbody>
+</table>

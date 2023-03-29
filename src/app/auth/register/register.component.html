@@ -1,0 +1,26 @@
+<h1>Cree le compte</h1>
+<!-- Ajouter span/gestion d'erreurs -->
+<div>
+    <form [formGroup]="registerForm" (ngSubmit)="newAccount()   ">
+        <div class="registerForm">
+            <label for="lastname">Lastname</label>
+            <input id="lastname" type="text" formControlName="lastname">
+        </div>
+        <div class="registerForm">
+            <label for="firstname">Firstname</label>
+            <input id="firstname" type="text" formControlName="firstname">
+        </div>
+        <div class="registerForm">
+            <label for="login">Login</label>
+            <input id="login" type="text" formControlName="login">
+        </div>
+        <div class="registerForm">
+            <label for="password">Password</label>
+            <input id="password" type="text" formControlName="password">
+        </div>
+        <div>
+
+            <button type="submit">Cree le compte</button>
+        </div>
+    </form>
+</div>

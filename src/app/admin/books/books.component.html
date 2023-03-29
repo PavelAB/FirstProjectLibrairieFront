@@ -1,0 +1,33 @@
+<table>
+    <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of listBook" [ngClass]="{'selected': selectedBooks.includes(book.ISBN)}">
+            <th [ngClass]="{'selected': selectedBooks.includes(book.ISBN)}">{{book.ISBN}}</th>
+            <th [ngClass]="{'selected': selectedBooks.includes(book.ISBN)}">{{book.title}}</th>
+            <th *ngIf="isRole==='User'|| isRole==='Admin'" [ngClass]="{'selected': selectedBooks.includes(book.ISBN)}">
+                <button  *ngIf="!selectedBooks.includes(book.ISBN)" (click)="selectBook(book.ISBN)">+</button>
+                <button *ngIf="selectedBooks.includes(book.ISBN)" (click)="removeBook(book.ISBN)">-</button>
+            </th>
+
+            <th [ngClass]="{'selected': selectedBooks.includes(book.ISBN)}">
+                <button *ngIf="isRole==='User'|| isRole==='Admin'" routerLink="/admin/books/details/{{book.ISBN}}">Details</button>
+                <button *ngIf="isRole==='Admin'" routerLink="/admin/books/update/{{book.ISBN}}">Modifier</button>
+            </th>
+            <th [ngClass]="{'selected': selectedBooks.includes(book.ISBN)}" *ngIf="isRole==='Admin'">
+                <button (click)="deleteBook(book.ISBN)">Supprimer</button>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button *ngIf="isRole==='User'|| isRole==='Admin'" (click)="newOrder()">Passer la commande</button>
+</div>
+<div *ngIf="isRole==='Admin'">
+    <button routerLink="/admin/books/create">Ajouter un nouveau livre</button>  
+</div>

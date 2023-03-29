@@ -1,0 +1,27 @@
+<div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let genre of listeGenres">
+            <th>{{genre.id}}</th>
+            <th>{{genre.name_genres}}</th>
+            <!-- <th *ngFor="let test of genre.Books">{{test.title}}</th> -->
+            <th>
+                <button routerLink="/admin/genre/details/{{genre.id}}">Details</button>
+                <button *ngIf="isRole==='Admin'" routerLink="/admin/genre/update/{{genre.id}}">Modifier</button>
+                <button *ngIf="( isRole) ==='Admin'" (click)="deleteGenre(genre.id)">Supprimer</button>
+            </th>
+            
+        </tr>
+    </tbody>
+</table>
+</div>
+<div>
+    <button *ngIf="isRole==='Admin'" routerLink="/admin/genre/create"> Ajouter un nouveau genre</button>
+</div>

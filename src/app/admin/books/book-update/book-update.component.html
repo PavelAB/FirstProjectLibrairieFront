@@ -1,0 +1,42 @@
+<p>Ajouter le nouveau livre</p>
+<div>
+    <form [formGroup]="editBook" (ngSubmit)="editBookFunction()">
+        <div>
+            <label for="title">Title</label>
+            <input id="title" type="text" formControlName="title">
+        </div>
+        <div>
+            <label for="price">Prix</label>
+            <input id="price" type="number" formControlName="price">
+        </div>
+        <div>
+            <label for="entry_date">Date d'entree</label>
+            <input id="entry_date" type="date" formControlName="entry_date">
+        </div>
+        <div>
+            <label for="isSale">Vendu</label>
+            <input id="isSale" type="checkbox" formControlName="isSale">
+        </div>
+        <!-- <div>
+          <label for="Author">Auteurs</label>
+          <select id="Author" formControlName="Author" multiple>
+            <option *ngFor="let test of listAuthor" [value]="test.ID_Author">{{test.firstname}} {{test.lastname}}</option>
+          </select>
+        </div> -->
+        <div>
+          <button *ngIf="isRole==='Admin'" routerLink="../../details/{{id}}">Modifier Auteurs/Genres</button>
+        </div>
+        <!-- <div>
+            <label for="genres">Genres</label>
+            <select id="genres" formControlName="genres" multiple>
+              <option *ngFor="let test of listGenres" [value]="test.id">{{test.name_genres}}</option>
+            </select>
+          </div> -->
+        
+<div>
+
+  <button type="submit">Creer</button>
+</div>
+    </form>
+</div>
+

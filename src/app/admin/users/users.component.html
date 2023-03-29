@@ -1,0 +1,32 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Login</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listUser">
+            <th>{{user.ID_User}}</th>
+            <th>{{user.login}}</th>
+            <th>{{user.lastname}}</th>
+            <th>{{user.firstname}}</th>
+            <th>
+                <button routerLink="/admin/user/details/{{user.ID_User}}">Options</button>
+                <button *ngIf="( isRole) ==='Admin'" (click)="deleteUser(user.ID_User)" >Supprimer</button>
+            </th>
+            <!-- <th *ngFor="let test of user.Orders">{{test.ID_Order}}</th>
+            <th>
+                <button *ngIf="isRole==='Admin'" routerLink="/admin/user/update/{{user.ID_User}}">Modifier</button>
+            </th> -->
+            
+        </tr>
+    </tbody>
+</table>
+<!-- <div>
+    <a *ngIf="isRole==='Admin'" routerLink="/admin/user/create">Ajouter un nouveau user </a>
+</div> -->

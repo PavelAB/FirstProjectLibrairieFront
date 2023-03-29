@@ -1,0 +1,27 @@
+<div>
+  <h2>Ajouter une nouvelle commande</h2>
+</div>
+<div>
+    <form [formGroup]="newOrder" (ngSubmit)="createNewOrder()">
+        <div>
+            <label for="ID_Order">ID_Order</label>
+            <input id="ID_Order" type="text" formControlName="ID_Order">
+        </div>
+        <div>
+            <label for="orderDate">Date de commande</label>
+            <input id="orderDate" type="date" formControlName="orderDate">
+        </div>
+        <div>
+          <label for="book">Books</label>
+          <select id="book" formControlName="book" multiple>
+            <option *ngFor="let test of listeBook" [value]="test.ISBN">{{test.title}}</option>
+          </select>
+        </div>
+
+<div>
+
+  <button type="submit">Creer</button>
+</div>
+    </form>
+</div>
+

@@ -1,0 +1,102 @@
+select {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px;
+  font-size: 16px;
+  color: #333;
+  appearance: none; // supprime la flèche de sélection par défaut (fonctionne sur certains navigateurs)
+}
+
+// style pour l'option sélectionnée
+select option:checked {
+  background-color: #ccc;
+  color: #fff;
+}
+
+// style pour l'option survolée
+select option:hover {
+  background-color: #e6e6e6;
+}
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input, textarea {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+// style pour l'élément survolé ou sélectionné
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+  border-color: #666;
+}
+
+// style pour l'élément désactivé
+input:disabled, textarea:disabled {
+  opacity: 0.5;
+}
+
+// style pour les messages d'erreur
+input:invalid, textarea:invalid {
+  border-color: #ff0000;
+}
+
+// style pour le label
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+button[type="submit"] {
+  background-color: #6d849c;
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button {
+  background-color: #6d849c;
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  margin: 4px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+// style pour le bouton survolé
+button:hover, input[type="submit"]:hover {
+  background-color: #0062cc;
+}
+
+// style pour le bouton pressé
+button:active, input[type="submit"]:active {
+  background-color: #005cbf;
+}
+
+// style pour le bouton désactivé
+button:disabled, input[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    margin-bottom: 10px; // pour ajouter un peu d'espace entre les inputs
+  }
+}

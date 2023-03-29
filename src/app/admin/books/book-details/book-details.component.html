@@ -1,0 +1,80 @@
+<div *ngIf="ThatBook">
+    
+        <h1>{{ThatBook.title}}</h1>
+        
+   </div> 
+   <div  *ngIf="ThatBook">
+    <h4>{{ThatBook.price}} EUR</h4>
+   </div>
+
+    <div *ngIf="ThatBook">
+        <h2>Auteurs : </h2>
+    </div>
+    <div *ngIf="ThatBook">
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of ThatBook.Author" >
+                <th>{{author.firstname}}</th>
+                <th>{{author.lastname}}</th>
+                <th>
+                    <button *ngIf="isRole==='Admin'" (click)="deleteAuthor(author.ID_Author)">Supprimer</button>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <div >
+        <form [formGroup]="addAuthorToBook" (ngSubmit)="editAuthorFunction()">
+            <div *ngIf="isRole==='Admin'">
+                <label for="Author">Books</label>
+                <select id="Author" formControlName="Author" multiple>
+                  <option *ngFor="let test of listAuthor" [value]="test.ID_Author">{{test.firstname}} {{test.lastname}}</option>
+                </select>
+      
+              </div>
+              <div *ngIf="isRole==='Admin'">
+
+              <button type="submit" >Ajouter</button>
+          </div>
+        </form>
+    </div>
+    <div *ngIf="ThatBook">
+        <h2>Genres : </h2>
+    </div>
+    <div *ngIf="ThatBook">
+    <table>
+        <thead>
+        </thead>
+        <tbody>
+            <tr *ngFor="let genres of ThatBook.Genres" >
+                <th routerLink="../../../../admin/genre/details/{{genres.ID_genres}}">{{genres.name_genres}}</th>
+                <th *ngIf="isRole==='Admin'">
+                    <button  (click)="deleteGenre(genres.ID_genres)">Supprimer</button>
+                </th>
+            </tr>
+            
+        </tbody>
+    </table>
+    
+    </div>
+    <div >
+        <form [formGroup]="addGenreToBook" (ngSubmit)="editGenreFunction()">
+            <div *ngIf="isRole==='Admin'"> 
+                <label for="genres">Books</label>
+                <select id="genres" formControlName="genres" multiple>
+                  <option *ngFor="let test of listGenres" [value]="test.id">{{test.name_genres}}</option>
+                </select>
+      
+              </div>
+              <div *ngIf="isRole==='Admin'">
+
+                  <button type="submit" >Ajouter</button>
+              </div>
+        </form>
+    </div>

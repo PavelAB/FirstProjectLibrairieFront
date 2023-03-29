@@ -1,0 +1,25 @@
+<div>
+    <h1>Modifie Genre</h1>
+</div>
+<div>
+    <form [formGroup]="editGenre" (ngSubmit)="editGenreFunction()">
+        <div >
+            <label for="name_genres">Nom du genre</label>
+            <input id="name_genres" type="text" formControlName="name_genres">
+        </div>
+        <div>
+            <label for="books">Books</label><br>
+            <select id="books" formControlName="Books" multiple>
+              <option *ngFor="let test of listeBook" [value]="test.ISBN">{{test.title}}</option>
+            </select>
+  
+          </div>
+          <div>
+        <button type="submit" >Modifier</button>
+    </div>
+    </form>
+</div>
+<div>
+    <button routerLink="/admin/genre">Liste de genre</button>
+    <button routerLink="">Page d'accueil</button>
+</div>

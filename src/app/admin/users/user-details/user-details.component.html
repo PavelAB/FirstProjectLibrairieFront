@@ -1,0 +1,24 @@
+<div>
+    <form [formGroup]="UpdateUser" class="form-container" (ngSubmit)="updateUser()">
+        <div>
+            <label for="login">Login</label>
+            <input id="login" type="text" formControlName="login">
+        </div>
+        <div>
+            <label for="lastname">Nom</label>
+            <input id="lastname" type="text" formControlName="lastname">
+        </div>
+        <div>
+            <label for="firstname">Prenom</label>
+            <input id="firstname" type="text" formControlName="firstname">
+        </div>
+        <div>
+            <label for="birth_date">Date de naissance</label>
+            <input id="birth_date" type="date" formControlName="birth_date">
+        </div>
+       
+
+
+        <button type="submit">Modifier</button>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+<div>
+    <h1>Details</h1>
+</div > 
+    <div *ngIf="editGenre">
+        <h2>{{editGenre.name_genres}}</h2>
+    </div>
+<table *ngIf="editGenre">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th *ngIf="isRole==='Admin'" >Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of editGenre.Books">
+            <th>{{book.ISBN}}</th>
+            <th>{{book.title}}</th>
+            <th>
+                <button *ngIf="isRole==='Admin'" (click)="deleteGenre(book.ISBN)">Supprimer</button>
+            </th>
+            <!-- <th></th>
+             <th *ngFor="let test of genre.Books">{{test.title}}</th> -->
+            <!-- <th>
+                <button><a routerLink="/admin/genre/details/{{genre.id}}">Details</a></button>
+            </th>
+            <th>
+                <button *ngIf="isRole==='Admin'" routerLink="/admin/genre/update/{{genre.id}}">Modifier</button>
+            </th>
+            <th>
+                <button *ngIf="( isRole) ==='Admin'" (click)="deleteGenre(genre.id)">Supprimer</button>
+            </th> -->
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button *ngIf="isRole==='User'" routerLink="/admin/genre/">Liste de genres </button>
+</div>
+<div *ngIf="isRole==='Admin'">
+    <form [formGroup]="addBookToGenre" (ngSubmit)="editGenreFunction()">
+        <div>
+            <label for="books">Books</label>
+            <select id="books" formControlName="Books" multiple>
+              <option *ngFor="let test of listeBook" [value]="test.ISBN">{{test.title}}</option>
+            </select>
+  
+          </div>
+        <button type="submit" >Ajouter</button>
+    </form>
+</div>

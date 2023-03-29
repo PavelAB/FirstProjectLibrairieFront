@@ -1,0 +1,31 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de naissance</th>
+            <th>Books</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let author of listAuthor">
+            <th>{{author.ID_Author}}</th>
+            <th>{{author.lastname}}</th>
+            <th>{{author.firstname}}</th>
+            <th>{{author.birth_date | date }}</th>
+
+            <th *ngFor="let test of author.Books">{{test.title}}</th>
+            <th>
+                <button *ngIf="isRole==='Admin'" routerLink="/admin/author/update/{{author.ID_Author}}">Modifier</button>
+            </th>
+            <th>
+                <button *ngIf="(isRole) ==='Admin'" >Supprimer</button>
+            </th>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <a *ngIf="isRole==='Admin'" routerLink="/admin/author/create">Ajouter un nouveau genre </a>
+</div>

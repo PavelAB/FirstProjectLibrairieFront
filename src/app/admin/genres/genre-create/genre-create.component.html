@@ -1,0 +1,25 @@
+<div>
+  <h1>
+    Creer le nouveau Genre
+
+  </h1>
+</div>
+<div>
+    <form [formGroup]="newGenre" (ngSubmit)="createNewGenre()">
+        <div>
+            <label for="name_genres">Nom du genre</label>
+            <input id="name_genres" type="text" formControlName="name_genres">
+        </div>
+        <div>
+          <label for="books">Books</label>
+          <select id="books" formControlName="Books" multiple>
+            <option *ngFor="let test of listeBook" [value]="test.ISBN">{{test.title}}</option>
+          </select>
+        </div>
+        
+<div>
+
+  <button type="submit">Creer</button>
+</div>
+    </form>
+</div>
